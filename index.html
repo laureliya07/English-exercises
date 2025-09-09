@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Упражнения по английскому языку</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: #333;
+      line-height: 1.7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(138, 43, 226, 0.12);
+      padding: 40px;
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(138,43,226,0.05) 0%, rgba(138,43,226,0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5d3a9b;
+      font-size: 2.6em;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #7d5bb5;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #5a2d82;
+      border-left: 5px solid #d0b3ff;
+      padding-left: 15px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .task-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .task-col {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #faf9fe;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .options {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      margin: 5px 0;
+    }
+
+    input[type="radio"] {
+      margin-right: 6px;
+      accent-color: #8a2be2;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #8a2be2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background: #7b1fa2;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+    }
+
+    #reset {
+      background: #a5a5a5;
+    }
+
+    #reset:hover {
+      background: #888;
+    }
+
+    .result {
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.3em;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      background: #f0e6ff;
+      color: #5a2d82;
+      display: none;
+    }
+
+    .correct {
+      border-color: #27ae60 !important;
+      background-color: #e8f5e9 !important;
+    }
+
+    .incorrect {
+      border-color: #e74c3c !important;
+      background-color: #fdf2f2 !important;
+    }
+
+    .explanation {
+      margin-top: 8px;
+      font-size: 0.9em;
+      color: #d35400;
+      padding: 8px;
+      background: #fff3cd;
+      border-left: 3px solid #ffc107;
+      border-radius: 0 5px 5px 0;
+      display: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9em;
+      padding-top: 20px;
+      border-top: 1px dashed #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📚 Учебник английского языка</h1>
+    <p class="subtitle">Выбери правильный вариант и проверь себя</p>
+
+    <!-- Задание 4 -->
+    <h2>4. A, an или нулевой артикль? (§11)</h2>
+    <div>
+      <div class="question" id="q1">
+        <span>______ poet</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q1" value="a"> a</label>
+          <label class="option"><input type="radio" name="q1" value="an"> an</label>
+          <label class="option"><input type="radio" name="q1" value=""> —</label>
+        </div>
+        <div class="explanation">Перед согласным звуком в единственном числе — "a".</div>
+      </div>
+      <div class="question" id="q2">
+        <span>______ English poet</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q2" value="a"> a</label>
+          <label class="option"><input type="radio" name="q2" value="an"> an</label>
+          <label class="option"><input type="radio" name="q2" value=""> —</label>
+        </div>
+        <div class="explanation">"English" начинается с гласного звука [ɪ], поэтому — "an".</div>
+      </div>
+      <div class="question" id="q3">
+        <span>______ poets</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q3" value="a"> a</label>
+          <label class="option"><input type="radio" name="q3" value="an"> an</label>
+          <label class="option"><input type="radio" name="q3" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q4">
+        <span>______ English poets</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q4" value="a"> a</label>
+          <label class="option"><input type="radio" name="q4" value="an"> an</label>
+          <label class="option"><input type="radio" name="q4" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q5">
+        <span>______ lady</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q5" value="a"> a</label>
+          <label class="option"><input type="radio" name="q5" value="an"> an</label>
+          <label class="option"><input type="radio" name="q5" value=""> —</label>
+        </div>
+        <div class="explanation">"Lady" — начинается с согласного звука [l] — "a".</div>
+      </div>
+      <div class="question" id="q6">
+        <span>______ old lady</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q6" value="a"> a</label>
+          <label class="option"><input type="radio" name="q6" value="an"> an</label>
+          <label class="option"><input type="radio" name="q6" value=""> —</label>
+        </div>
+        <div class="explanation">"Old" начинается с гласного звука [əʊ] — "an".</div>
+      </div>
+      <div class="question" id="q7">
+        <span>______ old ladies</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q7" value="a"> a</label>
+          <label class="option"><input type="radio" name="q7" value="an"> an</label>
+          <label class="option"><input type="radio" name="q7" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q8">
+        <span>______ olives</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q8" value="a"> a</label>
+          <label class="option"><input type="radio" name="q8" value="an"> an</label>
+          <label class="option"><input type="radio" name="q8" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q9">
+        <span>______ writer</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q9" value="a"> a</label>
+          <label class="option"><input type="radio" name="q9" value="an"> an</label>
+          <label class="option"><input type="radio" name="q9" value=""> —</label>
+        </div>
+        <div class="explanation">"Writer" начинается с согласного звука [r] — "a".</div>
+      </div>
+      <div class="question" id="q10">
+        <span>______ American writer</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q10" value="a"> a</label>
+          <label class="option"><input type="radio" name="q10" value="an"> an</label>
+          <label class="option"><input type="radio" name="q10" value=""> —</label>
+        </div>
+        <div class="explanation">"American" начинается с гласного звука [ə] — "an".</div>
+      </div>
+      <div class="question" id="q11">
+        <span>______ American writers</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q11" value="a"> a</label>
+          <label class="option"><input type="radio" name="q11" value="an"> an</label>
+          <label class="option"><input type="radio" name="q11" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q12">
+        <span>______ Oxford</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q12" value="a"> a</label>
+          <label class="option"><input type="radio" name="q12" value="an"> an</label>
+          <label class="option"><input type="radio" name="q12" value=""> —</label>
+        </div>
+        <div class="explanation">Имена собственные (города, университеты) — без артикля.</div>
+      </div>
+      <div class="question" id="q13">
+        <span>______ actors</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q13" value="a"> a</label>
+          <label class="option"><input type="radio" name="q13" value="an"> an</label>
+          <label class="option"><input type="radio" name="q13" value=""> —</label>
+        </div>
+        <div class="explanation">Множественное число — артикль не нужен.</div>
+      </div>
+      <div class="question" id="q14">
+        <span>______ England</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q14" value="a"> a</label>
+          <label class="option"><input type="radio" name="q14" value="an"> an</label>
+          <label class="option"><input type="radio" name="q14" value=""> —</label>
+        </div>
+        <div class="explanation">Страны (кроме некоторых) — без артикля.</div>
+      </div>
+      <div class="question" id="q15">
+        <span>______ Russia</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q15" value="a"> a</label>
+          <label class="option"><input type="radio" name="q15" value="an"> an</label>
+          <label class="option"><input type="radio" name="q15" value=""> —</label>
+        </div>
+        <div class="explanation">Страны — без артикля.</div>
+      </div>
+      <div class="question" id="q16">
+        <span>______ Moscow</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q16" value="a"> a</label>
+          <label class="option"><input type="radio" name="q16" value="an"> an</label>
+          <label class="option"><input type="radio" name="q16" value=""> —</label>
+        </div>
+        <div class="explanation">Города — без артикля.</div>
+      </div>
+      <div class="question" id="q17">
+        <span>______ Oleg</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q17" value="a"> a</label>
+          <label class="option"><input type="radio" name="q17" value="an"> an</label>
+          <label class="option"><input type="radio" name="q17" value=""> —</label>
+        </div>
+        <div class="explanation">Имена людей — без артикля.</div>
+      </div>
+      <div class="question" id="q18">
+        <span>______ Mike</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q18" value="a"> a</label>
+          <label class="option"><input type="radio" name="q18" value="an"> an</label>
+          <label class="option"><input type="radio" name="q18" value=""> —</label>
+        </div>
+        <div class="explanation">Имена людей — без артикля.</div>
+      </div>
+      <div class="question" id="q19">
+        <span>______ idea</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q19" value="a"> a</label>
+          <label class="option"><input type="radio" name="q19" value="an"> an</label>
+          <label class="option"><input type="radio" name="q19" value=""> —</label>
+        </div>
+        <div class="explanation">"Idea" начинается с гласного звука [aɪ] — "an".</div>
+      </div>
+      <div class="question" id="q20">
+        <span>______ good idea</span>
+        <div class="options">
+          <label class="option"><input type="radio" name="q20" value="a"> a</label>
+          <label class="option"><input type="radio" name="q20" value="an"> an</label>
+          <label class="option"><input type="radio" name="q20" value=""> —</label>
+        </div>
+        <div class="explanation">"Good idea" — "good" начинается с согласного, но "idea" — с гласного звука → "a good idea".</div>
+      </div>
+    </div>
+
+    <!-- Задание 5 -->
+    <h2>5. A, an или нулевой артикль? (§11)</h2>
+    <div class="task-row">
+      <div class="task-col">
+        <div class="question" id="q21">
+          <span>It is ______ apple.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q21" value="a"> a</label>
+            <label class="option"><input type="radio" name="q21" value="an"> an</label>
+            <label class="option"><input type="radio" name="q21" value=""> —</label>
+          </div>
+          <div class="explanation">"Apple" начинается с гласного звука [æ] — "an".</div>
+        </div>
+        <div class="question" id="q22">
+          <span>It is ______ my apple.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q22" value="a"> a</label>
+            <label class="option"><input type="radio" name="q22" value="an"> an</label>
+            <label class="option"><input type="radio" name="q22" value=""> —</label>
+          </div>
+          <div class="explanation">После притяжательных местоимений (my, your...) артикль не ставится.</div>
+        </div>
+        <div class="question" id="q23">
+          <span>It is ______ old doll.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q23" value="a"> a</label>
+            <label class="option"><input type="radio" name="q23" value="an"> an</label>
+            <label class="option"><input type="radio" name="q23" value=""> —</label>
+          </div>
+          <div class="explanation">"Old" начинается с гласного звука [əʊ] — "an".</div>
+        </div>
+        <div class="question" id="q24">
+          <span>It is ______ alligator.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q24" value="a"> a</label>
+            <label class="option"><input type="radio" name="q24" value="an"> an</label>
+            <label class="option"><input type="radio" name="q24" value=""> —</label>
+          </div>
+          <div class="explanation">"Alligator" начинается с гласного звука [æ] — "an".</div>
+        </div>
+        <div class="question" id="q25">
+          <span>It is ______ little alligator.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q25" value="a"> a</label>
+            <label class="option"><input type="radio" name="q25" value="an"> an</label>
+            <label class="option"><input type="radio" name="q25" value=""> —</label>
+          </div>
+          <div class="explanation">"Little" начинается с согласного звука [l] — "a".</div>
+        </div>
+        <div class="question" id="q26">
+          <span>He is ______ economist.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q26" value="a"> a</label>
+            <label class="option"><input type="radio" name="q26" value="an"> an</label>
+            <label class="option"><input type="radio" name="q26" value=""> —</label>
+          </div>
+          <div class="explanation">"Economist" произносится [ɪˈkɒnəmɪst] — начинается с гласного звука → "an".</div>
+        </div>
+      </div>
+      <div class="task-col">
+        <div class="question" id="q27">
+          <span>She is ______ teacher.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q27" value="a"> a</label>
+            <label class="option"><input type="radio" name="q27" value="an"> an</label>
+            <label class="option"><input type="radio" name="q27" value=""> —</label>
+          </div>
+          <div class="explanation">"Teacher" начинается с согласного звука [t] — "a".</div>
+        </div>
+        <div class="question" id="q28">
+          <span>That's ______ good idea.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q28" value="a"> a</label>
+            <label class="option"><input type="radio" name="q28" value="an"> an</label>
+            <label class="option"><input type="radio" name="q28" value=""> —</label>
+          </div>
+          <div class="explanation">"Good idea" — "good" начинается с согласного, но "idea" — с гласного звука → "a good idea".</div>
+        </div>
+        <div class="question" id="q29">
+          <span>It is ______ English song.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q29" value="a"> a</label>
+            <label class="option"><input type="radio" name="q29" value="an"> an</label>
+            <label class="option"><input type="radio" name="q29" value=""> —</label>
+          </div>
+          <div class="explanation">"English" начинается с гласного звука [ɪ] — "an".</div>
+        </div>
+        <div class="question" id="q30">
+          <span>It is ______ Russian song.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q30" value="a"> a</label>
+            <label class="option"><input type="radio" name="q30" value="an"> an</label>
+            <label class="option"><input type="radio" name="q30" value=""> —</label>
+          </div>
+          <div class="explanation">"Russian" начинается с согласного звука [r] — "a".</div>
+        </div>
+        <div class="question" id="q31">
+          <span>These are ______ oranges.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q31" value="a"> a</label>
+            <label class="option"><input type="radio" name="q31" value="an"> an</label>
+            <label class="option"><input type="radio" name="q31" value=""> —</label>
+          </div>
+          <div class="explanation">Множественное число — артикль не нужен.</div>
+        </div>
+        <div class="question" id="q32">
+          <span>This is ______ orange.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q32" value="a"> a</label>
+            <label class="option"><input type="radio" name="q32" value="an"> an</label>
+            <label class="option"><input type="radio" name="q32" value=""> —</label>
+          </div>
+          <div class="explanation">"Orange" начинается с гласного звука [ɔː] — "an".</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Задание 6 -->
+    <h2>6. am, is или are? (§15)</h2>
+    <div class="task-row">
+      <div class="task-col">
+        <div class="question" id="q33">
+          <span>This ______ an apple.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q33" value="is"> is</label>
+            <label class="option"><input type="radio" name="q33" value="am"> am</label>
+            <label class="option"><input type="radio" name="q33" value="are"> are</label>
+          </div>
+          <div class="explanation">"This" — единственное число → "is".</div>
+        </div>
+        <div class="question" id="q34">
+          <span>These ______ apples.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q34" value="is"> is</label>
+            <label class="option"><input type="radio" name="q34" value="am"> am</label>
+            <label class="option"><input type="radio" name="q34" value="are"> are</label>
+          </div>
+          <div class="explanation">"These" — множественное число → "are".</div>
+        </div>
+        <div class="question" id="q35">
+          <span>It ______ green.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q35" value="is"> is</label>
+            <label class="option"><input type="radio" name="q35" value="am"> am</label>
+            <label class="option"><input type="radio" name="q35" value="are"> are</label>
+          </div>
+          <div class="explanation">"It" — единственное число → "is".</div>
+        </div>
+        <div class="question" id="q36">
+          <span>I ______ a student.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q36" value="is"> is</label>
+            <label class="option"><input type="radio" name="q36" value="am"> am</label>
+            <label class="option"><input type="radio" name="q36" value="are"> are</label>
+          </div>
+          <div class="explanation">С местоимением "I" используется "am".</div>
+        </div>
+        <div class="question" id="q37">
+          <span>She ______ a student.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q37" value="is"> is</label>
+            <label class="option"><input type="radio" name="q37" value="am"> am</label>
+            <label class="option"><input type="radio" name="q37" value="are"> are</label>
+          </div>
+          <div class="explanation">"She" — единственное число → "is".</div>
+        </div>
+        <div class="question" id="q38">
+          <span>We ______ students.</span>
+          <div class="options">
+            <label class="option"><input type="radio" name="q38" value="is"> is</label>
+           
